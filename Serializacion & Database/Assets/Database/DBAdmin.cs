@@ -90,7 +90,7 @@ public class DBAdmin : MonoBehaviour
 
         StartCoroutine(DoQuery("deletescore", form, successCallback));
     }
-
+	
     public void SendFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
     {
 
@@ -101,13 +101,18 @@ public class DBAdmin : MonoBehaviour
 
     }
 
+	//Nico
     public void CheckRequests(string user, Action<string> successCallback, Action<string> failureCallback)
     {
 
     }
-
-    public void AcceptRequests(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
+	//Nico
+	public void AcceptRequests(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
     {
+		WWWForm form = CreateForm();
+		string query = "SELECT status FROM `friendlist` WHERE user1 = ('" + userA + "') AND user2 = ('" + userB + "');";// "') AND status = ('0');";
+		form.AddField("query", query);
 
+		StartCoroutine(DoQuery("aceptrequest", form, successCallback, failureCallback));
     }
 }
