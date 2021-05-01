@@ -91,4 +91,23 @@ public class DBAdmin : MonoBehaviour
         StartCoroutine(DoQuery("deletescore", form, successCallback));
     }
 
+    public void SendFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
+    {
+
+    }
+
+    public void DeleteFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
+    {
+
+    }
+
+    public void CheckRequests(string user, Action<string> successCallback, Action<string> failureCallback)
+    {
+
+    }
+
+    public void AcceptRequests(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
+    {
+
+    }
 }
