@@ -19,6 +19,7 @@ public class DBAdmin : MonoBehaviour
         }
         else
         {
+            Debug.Log("count: " + www.downloadHandler.text.Length);
             if (www.downloadHandler.text[0] == '0')
             {
                 Debug.Log("Ok");
@@ -56,7 +57,7 @@ public class DBAdmin : MonoBehaviour
     {
         WWWForm form = CreateForm();
 
-        string query = "SELECT usern FROM `accounts` WHERE usern = ('" + username + "') AND passw = ('" + password + "');";
+        string query = "SELECT Username FROM `accounts` WHERE Username = ('" + username + "') AND Password = ('" + password + "');";
         form.AddField("query", query);
 
         StartCoroutine(DoQuery("login", form, successCallback, failureCallback));
@@ -93,7 +94,10 @@ public class DBAdmin : MonoBehaviour
 	
     public void SendFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
     {
-
+        WWWForm form = CreateForm();
+        form.AddField("userA", userA);
+        form.AddField("userB", userB);
+        StartCoroutine(DoQuery("sendfriend", form, successCallback, failureCallback));
     }
 
     public void DeleteFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)

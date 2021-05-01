@@ -2788,7 +2788,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2020414121}
-        m_MethodName: OpenFriendlist
+        m_MethodName: OpenFriendlistBTN
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5501,7 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   host: localhost
-  database: test_viernes
+  database: parcial
   dbUser: root
   dbPw: root
 --- !u!4 &1518727696
@@ -7474,13 +7474,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   registerScreen: {fileID: 1365382766}
   loggedScreen: {fileID: 874813050}
+  friendWindow: {fileID: 1687964002}
   welcomeText: {fileID: 230730871}
   scoreField: {fileID: 138863433}
-  friendlistWindow: {fileID: 1687964002}
-  friendToAdd: {fileID: 393753760}
-  friendList: {fileID: 349345972}
-  receivedRequestText: {fileID: 1855421651}
-  friendToAccept: {fileID: 1013173002}
+  friendToAddField: {fileID: 393753760}
 --- !u!4 &2020414122
 Transform:
   m_ObjectHideFlags: 0
@@ -7578,7 +7575,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2020414121}
-        m_MethodName: CloseFriendlist
+        m_MethodName: CloseFriendlistBTN
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -22,7 +22,7 @@
 	$pw = $_POST["pass"];
 
 	//Guardo la sentencia en una variable para usarla en el query
-	$insertuserquery = "INSERT INTO cuentas (username, password) VALUES ('" . $username . "',
+	$insertuserquery = "INSERT INTO accounts (Username, Password) VALUES ('" . $username . "',
 																		'" . $pw . "');";
 
 	//Envio la sentencia a la conexion establecida (por eso utilizo la variable donde hice mi conexion $con)

@@ -5,12 +5,14 @@ using TMPro;
 
 public class Account : MonoBehaviour
 {
-    public GameObject registerScreen, loggedScreen;
+    public GameObject registerScreen, loggedScreen, friendWindow;
 
     public TMP_Text welcomeText;
 
     public TMP_InputField scoreField;
-    
+
+    public TMP_InputField friendToAddField;
+
     string _username;
 
     DBAdmin _db;
@@ -77,5 +79,31 @@ public class Account : MonoBehaviour
     {
         Debug.Log("Score deleted");
         scoreField.text = "0";
+    }
+
+    public void OpenFriendlistBTN()
+    {
+        friendWindow.SetActive(true);
+    }
+
+    public void CloseFriendlistBTN()
+    {
+        friendWindow.SetActive(false);
+    }
+
+    public void SendFriendRequestBTN()
+    {
+        _db.SendFriendRequest(_username, friendToAddField.text, SendFriendRequestSucceed, SendFriendRequestFailed);
+    }
+
+    void SendFriendRequestSucceed(string res)
+    {
+        Debug.Log("Friend request sent");
+    }
+
+    void SendFriendRequestFailed(string res)
+    {
+        Debug.Log("Friend request failed");
+        Debug.Log(res);
     }
 }
