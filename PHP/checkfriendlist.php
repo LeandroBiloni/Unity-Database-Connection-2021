@@ -12,13 +12,13 @@
         exit();
     }
     
-    $friendList = $_POST["User"];
+    $friendList = $_POST["users"];
 
     $selectQuery1 = "SELECT user1 FROM `friendlist` WHERE user2 = '" .$friendList. "' AND FriendStatus = 1";
     $queryResult1 = mysqli_query($con,$selectQuery1);
 
-   /* $selectQuery2 = "SELECT user2 FROM `friendlist` WHERE user1 = '" .$friendList. "' AND FriendStatus = 1";
-    $queryResult2 = mysqli_query($con,$selectQuery2);*/
+   $selectQuery2 = "SELECT user2 FROM `friendlist` WHERE user1 = '" .$friendList. "' AND FriendStatus = 1";
+    $queryResult2 = mysqli_query($con,$selectQuery2);
     
     if(mysqli_num_rows($queryResult1) < 1){
         echo("You have no friends nerd!");
@@ -32,11 +32,11 @@
         echo($ret);
 	}
 
-   /* while($row = mysqli_fetch_array($queryResult2))
+    while($row = mysqli_fetch_array($queryResult2))
 	{
 		$ret = "\n" .  $row["user2"];
         echo($ret);
-	}*/
+	}
 
     mysqli_close($con);
 ?>

@@ -93,6 +93,12 @@ public class DBAdmin : MonoBehaviour
 
 	public void SendFriendRequest(string userA, string userB, Action<string> successCallback, Action<string> failureCallback)
 	{
+		if (userA == userB)
+		{
+			Debug.Log("Can't send a request to yourself");
+			return;
+		}
+
 		WWWForm form = CreateForm();
 		form.AddField("userA", userA);
 		form.AddField("userB", userB);

@@ -32,7 +32,7 @@ public class Account : MonoBehaviour
 
         NextScreen(true);
 
-		//CheckFriendListBT();
+		CheckFriendListBT();
 
 	}
 
@@ -136,7 +136,7 @@ public class Account : MonoBehaviour
 	void CheckRequestFailed(string res)
 	{
 		Debug.Log("No requests");
-		
+		checkRequestText.text = "No requests";
 	}
 
 	public void CheckFriendListBT()
@@ -162,6 +162,7 @@ public class Account : MonoBehaviour
 	void CheckFriendListFailed(string res)
 	{
 		Debug.Log(res);
+		friendListText.text = res;
 	}
 
 	public void AcceptFriendRequestBTN()
@@ -172,7 +173,8 @@ public class Account : MonoBehaviour
 	private void AcceptFriendRequestSucces(string res)
 	{
 		Debug.Log("Friend Accepted");
-		//CheckFriendListBT();
+		CheckFriendListBT();
+		CheckRequestBTN();
 	}
 
 	private void AcceptFriendRequestFailed(string res)
@@ -188,8 +190,8 @@ public class Account : MonoBehaviour
 	private void DeleteFriendRequestSucces(string res)
 	{
 		Debug.Log("Friend Deleted");
-		/*CheckRequestBTN();
-		CheckFriendListBT();*/
+		CheckRequestBTN();
+		CheckFriendListBT();
 	}
 
 	private void DeleteFriendRequestFailed(string res)
